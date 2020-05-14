@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="oauth2-resource-server">
+
+    <featureManager>
+        <feature>localConnector-1.0</feature>
+        <feature>cdi-2.0</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>jsonp-1.1</feature>
+        <feature>mpConfig-1.3</feature>
+        <feature>mpJwt-1.1</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint" httpPort="9280" httpsPort="8643"/>
+    <mpJwt id="mpJwt123" audiences="http://localhost:9280"/>
+
+    <applicationManager autoExpand="true"/>
+    <applicationMonitor updateTrigger="mbean"/>
+    <application type="war" location="oauth2-resource-server.war" context-root="/"/>
+
+</server>
