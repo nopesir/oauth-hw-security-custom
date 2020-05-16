@@ -1,1 +1,3 @@
 oauth2-client/target/*
+oauth2-resource-server/target/*
+oauth2-authorization-server/target/*
