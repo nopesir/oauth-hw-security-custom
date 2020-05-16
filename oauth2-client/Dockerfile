@@ -1,11 +1,8 @@
-# Start with OL runtime.
-FROM open-liberty
+FROM openjdk:8-jre-alpine
 
-USER root
-# Symlink servers directory for easier mounts.
-RUN ln -s /opt/ol/wlp/usr/servers /servers
-USER 1001
+# Add my app and config
+COPY target/oauth2-client.jar ./
 
-# Run the server script and start the defaultServer by default.
-ENTRYPOINT ["/opt/ol/wlp/bin/server", "run"]
-CMD ["defaultServer"]
+EXPOSE 9180
+
+CMD java -jar oauth2-client.jar

@@ -10,7 +10,7 @@
         <feature>mpJwt-1.1</feature>
     </featureManager>
 
-    <httpEndpoint id="defaultHttpEndpoint" httpPort="${httpPort}" httpsPort="${httpsPort}"/>
+    <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="${httpPort}" httpsPort="${httpsPort}"/>
     <mpJwt id="mpJwt123" audiences="${jwt.resourceId}"/>
 
     <applicationManager autoExpand="true"/>

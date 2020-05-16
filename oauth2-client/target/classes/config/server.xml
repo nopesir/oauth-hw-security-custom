@@ -10,7 +10,7 @@
         <feature>jsonp-1.1</feature>
     </featureManager>
 
-    <httpEndpoint id="defaultHttpEndpoint" httpPort="9180" httpsPort="9543"/>
+    <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="9180" httpsPort="9543"/>
 
     <applicationManager autoExpand="true"/>
     <applicationMonitor updateTrigger="mbean"/>
