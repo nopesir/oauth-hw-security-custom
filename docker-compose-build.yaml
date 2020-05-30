@@ -6,10 +6,16 @@ version: '3.7'
 services:
   # AuthZ service
   app-server:
-    # Configuration for building the docker image for the backend service
-    image: luigiferrettino/custom-oauth:authz
+    # Configuration for building the docker image for the authz server
+    build: 
+      context: .
+      dockerfile: ./oauth2-authorization-server/Dockerfile
+      args: 
+        # Secrets
+        client_id: webappclient 
+        client_secret: webappclientsecret
     ports:
-      - "9080:9080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+      - "9080:9080" # Forward the exposed port 9080 on the container to port 9080 on the host machine
     restart: always 
     networks:
         testing_net:
@@ -17,10 +23,12 @@ services:
   
   # Resource service
   app-res:
-    # Configuration for building the docker image for the backend service
-    image: luigiferrettino/custom-oauth:resource
+    # Configuration for building the docker image for the client server
+    build: 
+      context: .
+      dockerfile: ./oauth2-resource-server/Dockerfile
     ports:
-      - "9280:9280" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+      - "9280:9280" # Forward the exposed port 9280 on the container to port 9280 on the host machine
     restart: always 
     depends_on: 
       - app-server
@@ -30,7 +38,14 @@ services:
 
   # Client Service 
   app-client:
-    image: luigiferrettino/custom-oauth:client
+    # Configuration for building the docker image for the resource server
+    build: 
+      context: .
+      dockerfile: ./oauth2-client/Dockerfile
+      args: 
+        # Secrets
+        client_id: webappclient 
+        client_secret: webappclientsecret
     ports:
       - "9180:9180" # Map the exposed port 9190 on the container to port 9190 on the host machine
     restart: always
@@ -41,7 +56,7 @@ services:
             ipv4_address: 172.28.1.1
 
 
-# Networks to be created to facilitate communication between containers
+# Networks created to facilitate communication between containers
 networks:
     testing_net:
         ipam:
