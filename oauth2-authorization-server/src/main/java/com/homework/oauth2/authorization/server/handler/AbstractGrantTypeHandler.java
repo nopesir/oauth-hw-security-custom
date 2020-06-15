@@ -52,11 +52,11 @@ public abstract class AbstractGrantTypeHandler implements AuthorizationGrantType
 
         //3. JWT Payload or claims
         JWTClaimsSet jwtClaims = new JWTClaimsSet.Builder()
-                .issuer("http://localhost:9080")
+                .issuer("http://172.28.1.2:9080")
                 .subject(subject)
                 .claim("upn", subject)
                 .claim("client_id", clientId)
-                .audience("http://localhost:9280")
+                .audience("http://172.28.1.3:9280")
                 .claim("scope", approvedScope)
                 .claim("groups", Arrays.asList(approvedScope.split(" ")))
                 .expirationTime(expirationTime) // expires in 30 minutes
