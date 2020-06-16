@@ -34,8 +34,8 @@
     <properties>
         <httpPort>9280</httpPort>
         <httpsPort>8643</httpsPort>
-        <jwt.issuer>http://localhost:9080</jwt.issuer>
-        <jwt.resourceId>http://localhost:9280</jwt.resourceId>
+        <jwt.issuer>http://172.28.1.2:9080</jwt.issuer>
+        <jwt.resourceId>http://172.28.1.3:9280</jwt.resourceId>
         <microprofile-jwt-auth-api.version>1.1</microprofile-jwt-auth-api.version>
     </properties>
 
