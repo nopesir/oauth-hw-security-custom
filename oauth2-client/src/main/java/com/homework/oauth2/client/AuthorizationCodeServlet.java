@@ -14,7 +14,12 @@ import java.util.UUID;
 @WebServlet(urlPatterns = "/authorize")
 public class AuthorizationCodeServlet extends HttpServlet {
 
-    @Inject
+    /**
+	 *
+	 */
+    private static final long serialVersionUID = 6947815928005866175L;
+    
+	@Inject
     private Config config;
 
     @Override

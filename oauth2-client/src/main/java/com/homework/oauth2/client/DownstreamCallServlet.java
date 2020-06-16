@@ -16,6 +16,10 @@ import java.io.PrintWriter;
 @WebServlet(urlPatterns = "/downstream")
 public class DownstreamCallServlet extends HttpServlet {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = -4831649107535567889L;
     @Inject
     private Config config;
 

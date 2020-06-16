@@ -20,6 +20,10 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/callback")
 public class CallbackServlet extends AbstractServlet {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = -4494583439737640867L;
     @Inject
     private Config config;
 

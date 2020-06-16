@@ -21,6 +21,10 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/refreshtoken")
 public class RefreshTokenServlet extends AbstractServlet {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = -2943921207394467855L;
     @Inject
     private Config config;
 

@@ -10,7 +10,12 @@ import java.util.Base64;
 
 public abstract class AbstractServlet extends HttpServlet {
 
-    protected void dispatch(String location, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void dispatch(String location, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(location);
         requestDispatcher.forward(request, response);
     }
