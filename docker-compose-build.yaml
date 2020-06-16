@@ -27,8 +27,6 @@ services:
     build: 
       context: .
       dockerfile: ./oauth2-resource-server/Dockerfile
-    ports:
-      - "9280:9280" # Forward the exposed port 9280 on the container to port 9280 on the host machine
     restart: always 
     depends_on: 
       - app-server
